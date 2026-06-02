@@ -367,9 +367,28 @@
               </div>
             </div>
             <div class="contact-cta text-center mt-4">
-              <a href="mailto:ruizpamela0509@gmail.com?subject=Oportunidad%20de%20prácticas%20profesionales" class="btn btn-primary-custom btn-lg">
-                <i class="bi bi-send me-2"></i>Enviar mensaje
-              </a>
+              <form id="contactForm" class="contact-form mt-4" novalidate>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="name" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="email" class="form-label">Correo</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                  </div>
+                  <div class="col-12">
+                    <label for="mensaje" class="form-label">Mensaje</label>
+                    <textarea class="form-control" id="mensaje" name="message" rows="4" required></textarea>
+                  </div>
+                  <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-primary-custom btn-lg" id="submitBtn">
+                      <i class="bi bi-send me-2"></i>Enviar mensaje
+                    </button>
+                    <p id="formFeedback" class="form-feedback mt-3 mb-0" hidden></p>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>

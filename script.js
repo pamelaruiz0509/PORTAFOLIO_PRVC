@@ -126,3 +126,47 @@
     });
   });
 })();
+const contactForm = document.getElementById("contactForm");
+const formFeedback = document.getElementById("formFeedback");
+const submitBtn = document.getElementById("submitBtn");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    submitBtn.disabled = true;
+    formFeedback.hidden = true;
+
+    const payload = {
+      access_key: "ab7184f9-f031-4c05-afa8-7c39d0717c76", // ← la clave de Web3Forms
+      subject: "Nuevo mensaje desde tu portafolio",
+      from_name: contactForm.name.value,
+      email: contactForm.email.value,
+      message: contactForm.message.value,
+    };
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        formFeedback.textContent = "¡Mensaje enviado! Te responderé pronto.";
+        formFeedback.className = "form-feedback mt-3 mb-0 text-success";
+        contactForm.reset();
+      } else {
+        throw new Error(data.message || "Error al enviar");
+      }
+    } catch (err) {
+      formFeedback.textContent = "No se pudo enviar. Intenta de nuevo o escríbeme directo por correo.";
+      formFeedback.className = "form-feedback mt-3 mb-0 text-danger";
+    } finally {
+      formFeedback.hidden = false;
+      submitBtn.disabled = false;
+    }
+  });
+}

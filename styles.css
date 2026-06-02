@@ -903,3 +903,19 @@ h1, h2, h3 {
     transition: none;
   }
 }
+
+.contact-form .form-control {
+  border-color: var(--beige-400);
+  border-radius: var(--radius);
+}
+
+.contact-form .form-control:focus {
+  border-color: var(--olive-600);
+  box-shadow: 0 0 0 0.2rem rgba(74, 85, 50, 0.15);
+}
+
+.contact-form .form-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--olive-800);
+}
