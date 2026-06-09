@@ -138,7 +138,7 @@ if (contactForm) {
     formFeedback.hidden = true;
 
     const payload = {
-      access_key: "ab7184f9-f031-4c05-afa8-7c39d0717c76", // ← la clave de Web3Forms
+      access_key: "680e2dbc-0b12-444b-aeb8-72728720de7d", // ← la clave de Web3Forms
       subject: "Nuevo mensaje desde tu portafolio",
       from_name: contactForm.name.value,
       email: contactForm.email.value,
